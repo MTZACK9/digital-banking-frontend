@@ -9,7 +9,7 @@ import {Customer} from '../serivces/customer';
 })
 export class Customers implements OnInit {
   customers: any;
-  errorMessage!: string;
+  errorMessage!: any;
 
   constructor(private readonly customerService: Customer) {
   }
@@ -20,7 +20,7 @@ export class Customers implements OnInit {
         this.customers = data;
       },
       error: err => {
-        console.log(err);
+        this.errorMessage = err;
       }
     })
   }
