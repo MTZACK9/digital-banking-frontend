@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-          @for (customer of customers; track customer.id) {
+          @for (customer of customers | async; track customer.id) {
             <tr>
               <td>{{ customer.id }}</td>
               <td>{{ customer.name }}</td>

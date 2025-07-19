@@ -1,28 +1,31 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../serivces/customer';
+import {catchError, Observable, throwError} from 'rxjs';
+import {AsyncPipe} from '@angular/common';
+import {CustomerModel} from '../model/CustomerModel';
 
 @Component({
   selector: 'app-customers',
-  imports: [],
+  imports: [
+    AsyncPipe
+  ],
   templateUrl: './customers.html',
   styleUrl: './customers.css'
 })
 export class Customers implements OnInit {
-  customers: any;
+  customers!: Observable<Array<CustomerModel>>;
   errorMessage!: any;
 
   constructor(private readonly customerService: Customer) {
   }
 
   ngOnInit() {
-    this.customerService.getCustomers().subscribe({
-      next: data => {
-        this.customers = data;
-      },
-      error: err => {
-        this.errorMessage = err;
-      }
-    })
+    this.customers = this.customerService.getCustomers().pipe(
+      catchError(err => {
+        this.errorMessage = err
+        return throwError(() => err)
+      })
+    );
   }
 
 }
