@@ -7,12 +7,20 @@
     }
     <div class="card-header">Customers</div>
     <div class="card-body">
+      <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()">
+        <div class="input-group">
+          <label class="input-group-text">Keyword</label>
+          <input type="text" formControlName="keyword" class="form-control">
+          <button class="btn btn-info">Search</button>
+        </div>
+      </form>
       <table class="table">
         <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Email</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +29,11 @@
               <td>{{ customer.id }}</td>
               <td>{{ customer.name }}</td>
               <td>{{ customer.email }}</td>
+              <td>
+                <button (click)="handleDeleteCustomer(customer)" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
             </tr>
           }
         </tbody>
