@@ -29,9 +29,12 @@
               <td>{{ customer.id }}</td>
               <td>{{ customer.name }}</td>
               <td>{{ customer.email }}</td>
-              <td>
+              <td class="d-flex gap-2">
                 <button (click)="handleDeleteCustomer(customer)" class="btn btn-danger">
                   <i class="bi bi-trash"></i>
+                </button>
+                <button title="Accounts" (click)="handleCustomerAccounts(customer)" class="btn btn-info text-white">
+                  <i class="bi bi-briefcase"></i>
                 </button>
               </td>
             </tr>

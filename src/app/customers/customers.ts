@@ -4,6 +4,7 @@ import {catchError, map, Observable, throwError} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {CustomerModel} from '../model/CustomerModel';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -19,7 +20,7 @@ export class Customers implements OnInit {
   errorMessage!: any;
   searchFormGroup!: FormGroup;
 
-  constructor(private readonly customerService: Customer, private readonly fb: FormBuilder) {
+  constructor(private readonly customerService: Customer, private readonly fb: FormBuilder, private readonly router: Router) {
   }
 
   ngOnInit() {
@@ -54,5 +55,11 @@ export class Customers implements OnInit {
         console.log(err)
       }
     })
+  }
+
+  handleCustomerAccounts(customer: CustomerModel) {
+    this.router.navigateByUrl("/customer-accounts/" + customer.id, {
+      state: customer
+    });
   }
 }
