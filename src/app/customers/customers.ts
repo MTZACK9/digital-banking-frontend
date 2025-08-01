@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from '../serivces/customer';
+import {Customer} from '../services/customer';
 import {catchError, map, Observable, throwError} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {CustomerModel} from '../model/CustomerModel';

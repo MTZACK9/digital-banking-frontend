@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CustomerModel} from '../model/CustomerModel';
-import {Customer} from '../serivces/customer';
+import {Customer} from '../services/customer';
 import {Router} from '@angular/router';
 
 @Component({

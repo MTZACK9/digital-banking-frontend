@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {Account} from '../serivces/account';
+import {Account} from '../services/account';
 import {catchError, Observable, throwError} from 'rxjs';
 import {AccountDetails} from '../model/AccountModel';
 import {AsyncPipe, DatePipe, DecimalPipe, NgClass} from '@angular/common';
