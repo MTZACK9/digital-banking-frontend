@@ -15,6 +15,5 @@ export class Navbar {
   }
   handleLogout() {
     this.authService.logout();
-    this.router.navigateByUrl("/login")
   }
 }

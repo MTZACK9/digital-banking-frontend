@@ -4,6 +4,7 @@ import {Account} from '../services/account';
 import {catchError, Observable, throwError} from 'rxjs';
 import {AccountDetails} from '../model/AccountModel';
 import {AsyncPipe, DatePipe, DecimalPipe, NgClass} from '@angular/common';
+import {Auth} from '../services/auth';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class Accounts {
   operationsFormGroup!: FormGroup;
   errMessage!: string;
 
-  constructor(private readonly fb: FormBuilder, private readonly accountService: Account) {
+  constructor(private readonly fb: FormBuilder, private readonly accountService: Account, protected readonly authService: Auth) {
   }
 
   ngOnInit() {

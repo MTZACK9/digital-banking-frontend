@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {Auth} from './services/auth';
 
 
 @Component({
@@ -10,4 +11,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('digital-banking-frontend');
+  constructor(private readonly authService : Auth) {
+  }
+  ngOnInit() {
+    this.authService.loadJwtFromLocalStorage()
+  }
 }
